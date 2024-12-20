@@ -3,8 +3,8 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 
 const users = [
   { id: "1", name: "John Doe", age: "30", isMarried: true },
-  { id: "1", name: "Jane Smith", age: "25", isMarried: false },
-  { id: "1", name: "Alice Wonder", age: "28", isMarried: false },
+  { id: "2", name: "Jane Smith", age: "25", isMarried: false },
+  { id: "3", name: "Alice Wonder", age: "28", isMarried: false },
 ];
 
 const typeDefs = `
