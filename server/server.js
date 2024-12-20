@@ -31,7 +31,31 @@ input UserInput {
 }
 `;
 
-const resolvers = {};
+const resolvers = {
+  Query: {
+    getUsers: () => {
+      return users;
+    },
+    getUserById: (parent, args) => {
+      console.log(JSON.stringify(parent));
+      return users.find((user) => user.id === args.id);
+    },
+  },
+  Mutation: {
+    createUser: (parent, args) => {
+      console.log(JSON.stringify(parent));
+      const { name, age, isMarried } = args.input;
+      const newUser = {
+        id: (users.length + 1).toString(),
+        name,
+        age,
+        isMarried,
+      };
+      users.push(newUser);
+      return newUser;
+    },
+  },
+};
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
